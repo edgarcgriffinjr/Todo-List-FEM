@@ -66,8 +66,11 @@ const showActive = () => {
 Another important portion of this project was the onclick functions along with conditional class using in-line functions to specify whether classes were complete or incomplete. 
 
 ```html
-<div className={taskList[index].isComplete ? 'complete' : 'incomplete'} onClick={() => toggleComplete(index)}>  
-// this is an example of a condition className using an if function as well as a inline function that passes a variable out
+/* this is an example of a condition className using an if 
+function as well as a inline function that passes a variable out */
+<div 
+  className={taskList[index].isComplete ? 'complete' : 'incomplete'} 
+  onClick={() => toggleComplete(index)}>  
   <Check />
 </div>
 ```

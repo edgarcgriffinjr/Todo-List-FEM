@@ -2,9 +2,11 @@ import React from 'react'
 
 import { taskList } from '../static/tasks'
 import { ReactComponent as Cross } from '../images/icon-cross.svg'
-import { ReactComponent as Check} from '../images/icon-check.svg'
-import { StyledSection, StyledDiv, StyledBottomDiv, 
-        StyledList, StyledListItem } from '../styles/listStyles'
+import { ReactComponent as Check } from '../images/icon-check.svg'
+import {
+    StyledSection, StyledDiv, StyledBottomDiv,
+    StyledList, StyledListItem
+} from '../styles/listStyles'
 
 
 var filteredList = taskList
@@ -14,6 +16,7 @@ const clearCompleted = () => {
     taskList.map((item, index) => {
         if (item.isComplete === true)
             taskList.splice(index, 1)
+        return 0
     })
     console.log(taskList)
 }
@@ -55,16 +58,16 @@ const List = () => {
                 <StyledList>
                     {filteredList.map((item, index) => {
                         return (
-                            <StyledListItem key = { index }> 
+                            <StyledListItem key={index}>
                                 <div>
-                                    <div 
-                                        className = {taskList[index].isComplete ? 'complete': 'incomplete'}
-                                        onClick = {() => toggleComplete(index)} 
+                                    <div
+                                        className={taskList[index].isComplete ? 'complete' : 'incomplete'}
+                                        onClick={() => toggleComplete(index)}
                                     > <Check /></div>
-                                    <span 
-                                        className = {taskList[index].isComplete ?'completeText': ''}>{item.text} </span>
+                                    <span
+                                        className={taskList[index].isComplete ? 'completeText' : ''}>{item.text} </span>
                                 </div>
-                                <Cross onClick = {() => deleteItem(index)}/>
+                                <Cross onClick={() => deleteItem(index)} />
                             </StyledListItem>
                         )
                     })}
@@ -72,11 +75,11 @@ const List = () => {
                 <StyledBottomDiv>
                     <span> {taskList.length} items left </span>
                     <div>
-                        <span onClick = { showAll }> All </span>
-                        <span onClick = { showActive }> Active </span>
-                        <span onClick = { showCompleted }> Completed</span>
+                        <span onClick={showAll}> All </span>
+                        <span onClick={showActive}> Active </span>
+                        <span onClick={showCompleted}> Completed</span>
                     </div>
-                    <span onClick = { clearCompleted }> Clear Completed</span>
+                    <span onClick={clearCompleted}> Clear Completed</span>
                 </StyledBottomDiv>
             </StyledDiv>
 
@@ -84,5 +87,5 @@ const List = () => {
 
     );
 }
- 
+
 export default List;

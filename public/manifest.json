@@ -1,0 +1,6 @@
+{
+  "short_name": "To-Do List",
+  "name": "To-Do List - Frontend Mentors",
+  "start_url": ".",
+  "display": "standalone"
+}
